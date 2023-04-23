@@ -8,11 +8,15 @@ module.exports = sequelize => {
 	class Hospital extends Model {}
 
 	// Inicialize el modelo Hospital aqui
-	Hospital.init(
+	Hospital.init({
+		name:{
+			type: DataTypes.STRING
+		},
+		city: {
+			type:DataTypes.STRING
+		}
 
-		// Rellene aqui ...
-
-	);
+	},{sequelize});
 
 	return Hospital;
 };
