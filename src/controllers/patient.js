@@ -51,5 +51,11 @@ exports.delete = async function (patientId) {
 
 // Buscar pacientes de un hospital ordenados por el nombre (de la A a la Z)
 exports.indexByHospital = async function (hospitalId) {
-    // Rellene aqui ...
+    let pacientes = await models.Patient.findAll({
+        order: ["name"],
+        where: {
+            hospitalId:hospitalId 
+        }
+    });
+    return pacientes;
 }
