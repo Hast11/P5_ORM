@@ -15,6 +15,10 @@ const Doctor = require('./doctor')(sequelize, Sequelize.DataTypes);
 // Relationships
 
 // Rellene aqui ...
+Hospital.hasMany(Patient,{as: 'patient', foreignKey: 'hospitalID'});
+Patient.belongsTo(Hospital, {as: 'hospital', foreignKey: 'hospitalID'});
 
+Doctor.belongsToMany(Patient, {through: 'Doctors_Patients'});
+Patient.belongsToMany(Doctor, {through: 'Doctor_Patients'});
 
 module.exports = exports = sequelize;
