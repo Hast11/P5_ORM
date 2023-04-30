@@ -22,6 +22,11 @@ exports.index = async function () {
 
 // Filtra los hospitales por ciudad
 exports.indexByCity = async function (city) {
-    // Rellene aqui ...
+    let pacientes = await models.Patient.findAll({
+        where: {
+            city:city 
+        }
+    });
+    return hospitales;
 }
 
