@@ -39,10 +39,10 @@ exports.update = async function (patientId, name, surname, dni) {
 // Borra un paciente
 exports.delete = async function (patientId) {
     try{
-        await models.Patient.destroy({where:{
+        await models.Patient.destroy({where:{ //Aniquilar paciente
             id: patientId
         }});
-        console.log('Paciente destruido!')
+        console.log('Paciente destruido!') //Confirmacion
     }catch(error){
         console.log(error);
     }
